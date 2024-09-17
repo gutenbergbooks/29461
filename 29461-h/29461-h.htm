@@ -1,0 +1,1955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <title>
+      The Project Gutenberg eBook of Preliminary Specifications: Programmed Data Processor Model Three (PDP-3),
+       by Digital Equipment Corporation.
+    </title>
+    <style type="text/css">
+    body              {margin-left: 7%; margin-right: 6%;}
+    p                 {margin-top: .75em; margin-bottom: .75em; text-align: justify;}
+    pre               {font-size: 0.7em; clear: both;}
+    h1,h2,h3,h4,h5    {text-align: center; clear: both;}
+    hr                {text-align: center; margin-left: auto;  margin-right: auto; clear: both;
+                       width: 65%; margin-top: 2em; margin-bottom: 2em;}
+    hr.short          {width: 20%;}
+    hr.invis          {margin: 1em auto; visibility: hidden;}
+
+    .figcenter        {padding: 1em; margin: 0; text-align: center; width: auto; }
+    .figtag           {height: 1px;}
+    img               {border: none; padding: 0;}
+    .caption          {font-weight: bold; text-align: center;}
+    table             {margin-left: auto; margin-right: auto;}
+    .trnote           {background-color: #EEE; color: inherit; margin: 2em 5% 1em 5%; font-size: 80%;
+                       padding: 0.5em 1em 0.5em 1em; border: dotted 1px gray;}
+    blockquote        {display: block; margin: .75em 10% .75em 5%;}
+    div.indentit      {display: block; margin: .75em 10% .75em 5%;}
+
+    .pagenum, span.pagenum { position: absolute; left: 1%; font-size: 85%; font-weight:normal; font-variant:normal;
+               padding: 0; font-style: normal; text-indent: 0; text-align: right; }
+    .pagenum          {visibility: hidden; display: none;}
+    @media screen     {.pagenum {display: inline!important; visibility: visible!important;} }
+
+    .center, .center p {text-align: center;}
+    .nowrap           {white-space:nowrap;}
+    .larger           {font-size: large;}
+    .instruct         {padding-right: 1em; font-style: italic; font-weight: bold;}
+    ins.trchange      {text-decoration: none; border-bottom: thin dotted gray;}
+
+    .spacer           {padding-top: 1em;}
+    .padit            {margin-left: 2em;}
+    sup               {font-size: 85%;}
+    sub               {font-size: 85%;}
+    </style>
+  </head>
+<body>
+
+<div class="center">
+
+<h1>PRELIMINARY SPECIFICATIONS</h1>
+
+<p>&mdash;&mdash;&mdash;</p>
+
+<p class="larger"><b>PROGRAMMED DATA PROCESSOR<br />
+MODEL THREE<br />
+(PDP-3)</b></p>
+
+<p>&mdash;&mdash;&mdash;</p>
+
+<p>October, 1960</p>
+
+<hr class="invis" />
+
+<p>Digital Equipment Corporation<br />
+Maynard, Massachusetts</p>
+</div>
+
+<hr />
+<h2><a name="TABLE_OF_CONTENTS" id="TABLE_OF_CONTENTS"></a>TABLE OF CONTENTS</h2>
+
+<table summary="TOC" width="100%">
+<colgroup>
+  <col width="10%" />
+  <col width="60%" />
+  <col width="10%" />
+  <col width="10%" />
+</colgroup>
+<tr><td colspan="3">INTRODUCTION</td><td /><td class="ralign"><a href="#INTRODUCTION">1</a></td></tr>
+<tr><td /><td colspan="2">General Description</td><td class="ralign"><a href="#GENERAL_DESCRIPTION">1</a></td></tr>
+<tr><td /><td colspan="2">System Block Diagram</td><td class="ralign"><a href="#SYSTEM_BLOCK_DIAGRAM">1</a></td></tr>
+<tr><td /><td colspan="2">Electrical Description</td><td class="ralign"><a href="#ELECTRICAL_DESCRIPTION">4</a></td></tr>
+<tr><td /><td colspan="2">Mechanical Description</td><td class="ralign"><a href="#MECHANICAL_DESCRIPTION">4</a></td></tr>
+<tr><td /><td colspan="2">Environmental Requirements</td><td class="ralign"><a href="#ENVIRONMENTAL_REQUIREMENTS">5</a></td></tr>
+<tr><td colspan="3" class="spacer">CENTRAL PROCESSOR</td><td /><td class="ralign"><a href="#CENTRAL_PROCESSOR">6</a></td></tr>
+<tr><td /><td colspan="2"><ins class="trchange" title="Originally 'Operation'">Operating</ins> Speeds</td><td class="ralign"><a href="#OPERATING_SPEEDS">6</a></td></tr>
+<tr><td /><td colspan="2">Instruction Format</td><td class="ralign"><a href="#INSTRUCTION_FORMAT">6</a></td></tr>
+<tr><td /><td colspan="2">Number System</td><td class="ralign"><a href="#NUMBER_SYSTEM">7</a></td></tr>
+<tr><td /><td colspan="2">Indexing</td><td class="ralign"><a href="#INDEXING">8</a></td></tr>
+<tr><td /><td colspan="2">Indirect Addressing</td><td class="ralign"><a href="#INDIRECT_ADDRESSING">8</a></td></tr>
+<tr><td /><td colspan="2">Instruction List</td><td class="ralign"><a href="#INSTRUCTION_LIST">9</a></td></tr>
+<tr><td /><td colspan="2">Manual Controls</td><td class="ralign"><a href="#MANUAL_CONTROLS">20</a></td></tr>
+<tr><td colspan="3" class="spacer">STORAGE</td><td /><td class="ralign"><a href="#STORAGE">22</a></td></tr>
+<tr><td colspan="3" class="spacer">STANDARD INPUT-OUTPUT</td><td /><td class="ralign"><a href="#STANDARD_INPUT-OUTPUT">23</a></td></tr>
+<tr><td /><td colspan="2">Paper Tape Reader</td><td class="ralign"><a href="#PAPER_TAPE_READER">23</a></td></tr>
+<tr><td /><td colspan="2">Paper Tape Punch</td><td class="ralign"><a href="#PAPER_TAPE_PUNCH">24</a></td></tr>
+<tr><td /><td colspan="2">Typewriter</td><td class="ralign"><a href="#TYPEWRITER">24</a></td></tr>
+<tr><td colspan="3" class="spacer">OPTIONAL INPUT-OUTPUT</td><td /><td class="ralign"><a href="#OPTIONAL_INPUT-OUTPUT">26</a></td></tr>
+<tr><td /><td colspan="2">Sequence Break System</td><td class="ralign"><a href="#SEQUENCE_BREAK_SYSTEM">26</a></td></tr>
+<tr><td /><td colspan="2">High Speed In-Out Channel</td><td class="ralign"><a href="#HIGH_SPEED_IN-OUT_CHANNEL">26</a></td></tr>
+<tr><td /><td colspan="2">Magnetic Tape</td><td class="ralign"><a href="#MAGNETIC_TAPE">27</a></td></tr>
+<tr><td /><td colspan="2">CRT Display</td><td class="ralign"><a href="#CRT_DISPLAY">33</a></td></tr>
+<tr><td /><td colspan="2">Real Time Clock</td><td class="ralign"><a href="#REAL_TIME_CLOCK">33</a></td></tr>
+<tr><td /><td colspan="2">Line Printer</td><td class="ralign"><a href="#LINE_PRINTER">34</a></td></tr>
+<tr><td colspan="3" class="spacer">UTILITY PROGRAMS</td><td /><td class="ralign"><a href="#UTILITY_PROGRAMS">35</a></td></tr>
+<tr><td /><td colspan="2"><ins class="trchange" title="Originally 'Frap'">FRAP</ins> System</td><td class="ralign"><a href="#FRAP_SYSTEM">35</a></td></tr>
+<tr><td /><td colspan="2">DECAL System</td><td class="ralign"><a href="#DECAL_SYSTEM">35</a></td></tr>
+<tr><td /><td colspan="2">Floating Point <ins class="trchange" title="Originally 'Routines'">Subroutines</ins></td><td class="ralign"><a href="#FLOATING_POINT_SUBROUTINES">36</a></td></tr>
+<tr><td /><td colspan="2">Maintenance Routines</td><td class="ralign"><a href="#MAINTENANCE_ROUTINES">37</a></td></tr>
+<tr><td /><td colspan="2">Miscellaneous Routines</td><td class="ralign"><a href="#MISCELLANEOUS_ROUTINES">37</a></td></tr>
+</table>
+
+<hr />
+
+<p><span class="pagenum"><a id="page1" name="page1">-1-</a></span></p>
+<h2><a name="INTRODUCTION" id="INTRODUCTION"></a>INTRODUCTION</h2>
+
+<h3><a name="GENERAL_DESCRIPTION" id="GENERAL_DESCRIPTION"></a>GENERAL DESCRIPTION</h3>
+
+<p>The DEC Programmed Data Processor Model Three (PDP-3) is a high
+performance, large scale digital computer featuring reliability in
+operation together with economy in initial cost, maintenance and
+use. This combination is achieved by the use of very fast, reliable,
+solid state circuits coupled with system design restraint. The
+simplicity of the system design excludes many marginal or superfluous
+features and thus their attendant cost and maintenance problems.</p>
+
+<p>The average internal instruction execution rate is about 100,000
+operations per second with a peak rate of 200,000 operations per
+second. This speed, together with its economy and reliability,
+recommends PDP-3 as an excellent instrument for complex real time
+control applications and as the center of a modern computing facility.</p>
+
+<p>PDP-3 is a stored program, general purpose digital computer. It
+is a single address, single instruction machine operating in parallel
+on 36 bit numbers. It features multiple step indirect addressing
+and indexing of addresses. The main memory makes 511 registers
+available as index registers.</p>
+
+<p>The main storage is coincident current magnetic core modules of 4096
+words each. The computer has a built-in facility to address 8
+modules and can be expanded to drive 64 modules. The memory has a
+cycle time of five microseconds.</p>
+
+<h3><a name="SYSTEM_BLOCK_DIAGRAM" id="SYSTEM_BLOCK_DIAGRAM"></a>SYSTEM BLOCK DIAGRAM</h3>
+
+<p>The flow of information between the various registers of PDP-3 is
+shown in the System Block Diagram (<a href="#FIGURE_1">Fig. 1</a>). There are four registers
+of 36 bit length. Their functions are described below.</p>
+
+<div class="indentit">
+<h4>Memory Buffer</h4>
+
+<p>The Memory Buffer is the central switching register. The
+word coming from or going to memory is retained in this
+register. In arithmetic operations it holds the addend,
+subtrahend, multiplicand, or divisor. The left 6 bits of
+this register communicate with the Instruction Register.
+The address portion of the Memory Buffer Register communicates
+with the Index Adder, the Memory Address Register,<span class="pagenum"><a id="page2" name="page2">-2-</a></span>
+and the Program Counter. In certain instructions, the
+address portion of the control word does not refer to
+memory but specifies variations of an instruction, thus,
+the address portion of the Memory Buffer is connected to
+the Control Element.</p>
+
+<h4>Accumulator</h4>
+
+<p>The Accumulator is the main register of the Arithmetic
+Element. Sums and differences are formed in the Accumulator.
+At the completion of multiplication it holds the high order
+digits of the product. In division it initially contains the
+high order digits of the dividend and is left with the remainder.</p>
+
+<p>The logical functions AND, inclusive OR, and exclusive OR,
+are formed in the Accumulator.</p>
+
+<h4>Carry Storage Register</h4>
+
+<p>The Carry Storage Register facilitates high-speed multiply
+and is properly part of the Accumulator.</p>
+
+<h4>In-Out Register</h4>
+
+<p>The In-Out Register is the main path of communication with
+external equipment. It is also part of the Arithmetic
+Element. In multiplication it ends with the low order digits
+of the product. In division it starts with the low order
+parts of the dividend and ends with the quotient.</p>
+
+<p>The In-Out Register has a full set of shifting properties,
+(arithmetic and logical).</p>
+
+<hr class="short" />
+
+<blockquote><p>There are three registers of 15 bit length which
+deal exclusively with addresses. The design allows for
+expansion to 18 bits. These registers are:</p></blockquote>
+
+<h4>Memory Addressing</h4>
+
+<p>The Memory Address Register holds the number of the memory
+location that is currently being interrogated. It receives
+this number from the Program Counter, the Index Adder or the
+Memory Buffer.</p>
+
+<p><span class="pagenum"><a id="page3" name="page3">-3-</a></span></p>
+<h4>Program Counter</h4>
+
+<p>The Program Counter holds the memory location of the next
+instruction to be executed.</p>
+
+<h4>Index Adder</h4>
+
+<p>The Index Adder is a 15 bit ring accumulator. The sum of an
+instruction base address, Y, and the contents of an index
+register, C(x), are formed in this register. This register
+holds the previous content of the Program Counter in the
+"jump and save Program Counter," jps, instruction. The Index
+Adder also serves as the step counter in shift, multiply, and
+divide.</p>
+
+<hr class="short" />
+
+<blockquote><p>The Control Element contains two six bit registers
+and several miscellaneous flip-flops. The latter
+deal with indexing, indirect addressing, memory control,
+etc. The six bit registers are:</p></blockquote>
+
+<h4>Instruction Register</h4>
+
+<p>The Instruction Register receives the first six bits of the
+Memory Buffer Register during the cycle which obtains the
+instruction from memory (cycle zero). This information is
+the primary input to the Control Element.</p>
+
+<h4>Program Flags</h4>
+
+<p>The six Program Flags act as convenient program switches. They
+are used to indicate separate states of a program. The program
+can set, clear, or sense the individual flip-flops. The
+program can also sense or make the state "All Flags ZERO."
+They can also be used to synchronize various input devices
+which occur at random times (see <a href="#STANDARD_INPUT-OUTPUT">Input-Output</a>, <a href="#TYPEWRITER">Typewriter
+Input</a>).</p>
+
+<hr class="short" />
+
+<blockquote><p>Three toggle switch registers are connected to the
+Central Processor (see <a href="#MANUAL_CONTROLS">Manual Controls</a>).</p></blockquote>
+
+<h4>Test Address</h4>
+
+<p>The fifteen Test Address Switches are used to indicate start
+points and to select memory registers for manual examination
+or change.</p>
+
+<p><span class="pagenum"><a id="page4" name="page4">-4-</a></span></p>
+<h4>Test Word</h4>
+
+<p>The thirty-six Test Word Switches indicate a new number for
+manual deposit into memory. They may also be used for insertion
+of constants while a program is operating by means of
+<ins class="trchange" title="Originally 'theoperate'">the operate</ins> instruction.</p>
+
+<h4>Sense Switches</h4>
+
+<p>The six Sense Switches allow the operator to manually select
+program options or cause a jump to another program in memory.
+The program can sense individual switches or the state "All
+Switches ZERO."</p>
+</div>
+
+<h3><a name="ELECTRICAL_DESCRIPTION" id="ELECTRICAL_DESCRIPTION"></a>ELECTRICAL DESCRIPTION</h3>
+
+<p>The PDP-3 circuitry is the static type using saturating transistor
+flip-flops and, for the most part, transistor switch elements.
+The primary active elements are Micro-Alloy and Micro-Alloy-Diffused
+transistors. The flip-flops have built-in delay so that a logic
+net may be sampled and changed simultaneously.</p>
+
+<p>Machine timing is performed by a delay line chain. Auxiliary delay
+line chains time the step counter instructions (multiply, divide,
+etc.). The machine is thus internally synchronous with step counter
+instructions being asynchronous. The machine is asynchronous for
+in-out operations, that is, the completion of an in-out operation
+initiates the following instruction.</p>
+
+<h3><a name="MECHANICAL_DESCRIPTION" id="MECHANICAL_DESCRIPTION"></a>MECHANICAL DESCRIPTION</h3>
+
+<p>The PDP-3 consists of two mechanical assemblies, the Console and the
+Equipment Frame. <a href="#FIGURE_3">Fig. 3</a> is a photograph of PDP-1 which is an 18
+bit version of PDP-3.</p>
+
+<div class="indentit">
+<h4>Console</h4>
+
+<p>The Console is a desk approximately seven feet long. It
+contains the controls and indicators necessary for operation
+and maintenance of the machine. A cable connects the Console
+to the Equipment Frame.</p>
+
+<p><span class="pagenum"><a id="page5" name="page5">-5-</a></span></p>
+<h4>Equipment Frame</h4>
+
+<p>The Equipment Frame is approximately six feet high and two
+feet deep. The length is a function of the amount of
+optional features included. The Central Processor requires a
+length of five and one half feet. The power cabinet is
+twenty-two inches long. A memory cabinet is thirty-two inches
+long and will hold three memory modules (12,288 words per
+cabinet). Memory cabinets may be added at any time.</p>
+
+<p>Magnetic tape units require twenty-two inches per transport.
+A tape unit cabinet may be connected as an extension of the
+Equipment Frame or may be a free-standing frame.</p>
+</div>
+
+<h3><a name="ENVIRONMENTAL_REQUIREMENTS" id="ENVIRONMENTAL_REQUIREMENTS"></a>ENVIRONMENTAL REQUIREMENTS</h3>
+
+<p>The PDP-3 requires no special room preparation. The computer will
+operate properly over the normal range of room temperature.</p>
+
+<p>The Central Processor and memory together require thirty amperes of
+110 volts single phase 60 cycle ac. Each inactive tape transport
+requires two amperes and the one active transport requires 10 amperes.</p>
+
+<hr />
+
+<p><span class="pagenum"><a id="page6" name="page6">-6-</a></span></p>
+<h2><a name="CENTRAL_PROCESSOR" id="CENTRAL_PROCESSOR"></a>CENTRAL PROCESSOR</h2>
+
+<p>The Central Processor of PDP-3 contains the Control Element, the
+Memory Buffer Register, the Arithmetic Element, and the Memory
+Addressing Element. The Control Element governs the complete
+operation of the computer including memory timing, instruction
+performance, and the initiation of input-output commands. The
+Arithmetic Element, which includes the Accumulator, the In-Out Register,
+and the Carry Storage Register, performs the arithmetic
+operations. The Memory Addressing Element which includes the Index
+Adder, the Program Counter, and the Memory Address Register, performs
+address bookkeeping and modification.</p>
+
+<h3><a name="OPERATING_SPEEDS" id="OPERATING_SPEEDS"></a>OPERATING SPEEDS</h3>
+
+<p>Operating times of PDP-3 instructions are normally multiples of
+the memory cycle of 5 microseconds. Two cycle instructions refer
+twice to memory and thus require 10 microseconds for completion.
+Examples of this are add, subtract, deposit, load, etc. One cycle
+instructions do not refer to memory and require 5 microseconds.
+Examples of the latter are the jump instructions, the skip instructions,
+and the operate group. The operating times of variable
+cycle instructions depend upon the instruction. For example, the
+operating time for a shift or rotate instruction is <span class="nowrap">5 +0.2N</span> microseconds,
+where N is the number of shifts performed. The operating
+times for multiply and divide are functions of the number of ones
+in the multiplier and in the quotient, respectively. Maximum
+time for multiply is 25 microseconds. This includes the time
+necessary to get the multiply instruction from memory. Divide
+takes 90 microseconds maximum.</p>
+
+<p>In-Out Transfer instructions that do not include the optional wait
+function require 5 microseconds. If the in-out device requires a
+wait time for completion, the operating time depends upon the device
+being used.</p>
+
+<p>If an instruction includes reference to an index register, an
+additional 5 microseconds is required. Each step of indirect
+addressing also requires an additional 5 microseconds.</p>
+
+<h3><a name="INSTRUCTION_FORMAT" id="INSTRUCTION_FORMAT"></a>INSTRUCTION FORMAT</h3>
+
+<p>The instructions for PDP-3 may be divided into three classes:<span class="pagenum"><a id="page7" name="page7">-7-</a></span></p>
+
+<ol>
+<li>Indexable memory instructions</li><li>Non-indexable memory instructions</li>
+<li>Non-memory instructions.</li>
+</ol>
+
+<p>The layout of the instruction word is shown in <a href="#FIGURE_2">Fig. 2</a>.</p>
+
+<p>The octal digits 0 and 1 define the instruction code, thus, there
+are 64 possible instruction codes, not all of which are used. The
+first bit of octal digit 2 is the indirect address bit. If this
+bit is a ONE, indirect addressing occurs.</p>
+
+<p>The index address, X, is in octal digits 3, 4, and 5. These digits
+address an index register for memory-type instructions. If these
+digits are all ZERO, indexing will not take place. In main memory,
+511 of the registers can be used as automatic index registers.</p>
+
+<p>The instruction base address, <ins class="trchange" title="Added comma">Y,</ins> is in octal digits 7 through 11.
+These digits are sufficient to address 32,768 words of memory.
+Octal digit 6 is reserved for further memory expansion. Space is
+available in the equipment frame for this expansion, should it prove
+desirable.</p>
+
+<p>In those instructions which do not refer to memory, the memory
+address digits, Y, and in some cases the index address digits also,
+are used to specify the variations in any group of instructions.
+An example of this is in the shift and rotate instructions in which
+the memory address digits determine the number of shifts.</p>
+
+<h3><a name="NUMBER_SYSTEM" id="NUMBER_SYSTEM"></a>NUMBER SYSTEM</h3>
+
+<p>The PDP-3 is a "fixed" point machine using binary arithmetic. Negative
+numbers are represented as the 1's complement of the positive
+numbers. Bit 0 is the sign bit which is ZERO for positive numbers.
+Bits 1 to 35 are magnitude bits with bit 1 being the most significant
+and bit 35 being the least significant.</p>
+
+<p>The actual position of the binary point may be arbitrarily assigned
+to best suit the problem in hand. Two common conventions in the
+placement of the binary point are:</p>
+
+<ol>
+<li>The binary point is to the right of the least significant
+digit, thus, numbers represent integers.</li>
+<li>The binary point is to the right of the sign digit, thus
+the numbers represent a fraction which lies between &plusmn;1.</li></ol>
+
+<p><span class="pagenum"><a id="page8" name="page8">-8-</a></span>
+The conversion of decimal numbers into the binary system for use by
+the machine may be performed automatically by <ins class="trchange" title="Standardized from 'sub-routines'">subroutines</ins>. Similarly
+the output conversion of binary numbers into decimals is done by
+<ins class="trchange" title="Standardized from 'sub-routine'">subroutine</ins>. Operations for floating point numbers are handled by
+programming. The utility program system provides for automatic
+insertion of the routines required to perform floating point operations
+and number base conversion (see <a href="#UTILITY_PROGRAMS">Utility Programs</a>).</p>
+
+<h3><a name="INDEXING" id="INDEXING"></a>INDEXING</h3>
+
+<p>In PDP-3, 511 registers of the main magnetic core memory are available
+for use as automatic index registers. Their addresses are
+specified by octal digits 3 to 5 of the instruction word. These
+registers are memory locations 001-777 (octal). Address 000
+specifies that no index register is to be used with the instructions.
+The contents of octal digits 7 through 11 of the selected index
+register are added to the unmodified address (octal digits 7 through
+11 of the instruction).</p>
+
+<p>This sum is used to locate the operand. The addition is done in
+the Index Adder which is a 15 bit 1's complement adder. The contents
+of the Accumulator and the In-Out Register are unaffected by the
+indexing process. An instruction which has used indexing is retained
+in memory with its original address unmodified. Memory registers
+1-777 (octal) are available for use as normal memory registers if
+they are not being used as index registers. The left half of these
+registers is available for the storage of constants, tables, etc.,
+when octal digits 7 through 11 act as index registers.</p>
+
+<p>Three special instructions snx, spx and lir, are available to
+facilitate resetting, advancing, and sampling of the index registers.
+Since the index registers are normal memory registers, their contents
+can also be manipulated by the standard computer instructions.</p>
+
+<h3><a name="INDIRECT_ADDRESSING" id="INDIRECT_ADDRESSING"></a>INDIRECT ADDRESSING</h3>
+
+<p>An instruction which is to use an indirect address will have a ONE
+in bit six of the instruction word. The original address, Y, of the
+instruction will not be used to locate the operand of the instruction,
+as is the normal case. Instead, it is used to locate a memory
+register whose contents in octal digits 7 through 11 will be used
+as the address of the original instruction. This new address is
+known as the indirect address for the instruction and will be used
+<span class="pagenum"><a id="page9" name="page9">-9-</a></span>to locate the operand. If the memory register containing the
+indirect address also has a 1 in bit six, the indirect addressing
+procedure is repeated again and a third address is located. There
+is no limit to the number of times this process can be repeated.</p>
+
+<p>Index registers may be used in conjunction with indirect addressing.
+In this case, the address after being modified by the selected index
+register is used to locate the indirect address.</p>
+
+<p>The indirect address can be acted on by an index register and
+deferred again if desired. Each use of an index register or an
+indirect address extends the operating time of the original instruction
+by 5 microseconds.</p>
+
+<h3><a name="INSTRUCTION_LIST" id="INSTRUCTION_LIST"></a>INSTRUCTION LIST</h3>
+
+<p>This list includes the title of the instruction, the normal execution
+time of the instruction, i.e., the time with no indexing and no
+deferring, the mnemonic code of the instruction, and the operation
+code number. The notation used requires the following definitions.
+The contents of a register Q are indicated as C(Q). The address
+portion of the instruction is indicated by Y. The index register
+address of an instruction is indicated by x. The effective address
+of an operand is indicated by Z. Z may be equal to Y or it may be
+Y as modified by deferring or by indexing.</p>
+
+<h4>Indexable Memory Instructions</h4>
+
+<h5>Arithmetic Instructions</h5>
+
+<div class="indentit">
+<p>
+<span class="instruct">Add</span>(10 usec.)<br />
+add x Y <span class="padit">Operation Code 40</span>
+</p>
+
+<p>The new C(AC) are the sum of C(Z) and the original C(AC).
+The C(Z) are unchanged. The addition is performed with 1's
+complement arithmetic.</p>
+
+<p>If the sum exceeds the capacity of the Accumulator Register,
+the overflow flip-flop will be set (see <a href="#SKIP_GROUP">Skip Group instructions</a>).</p>
+
+<p class="spacer">
+<span class="instruct">Subtract</span>(10 usec.)<br />
+sub x Y <span class="padit">Operation Code 42</span>
+</p>
+
+<p>The new C(AC) are the original C(AC) minus the C(Z).
+The C(Z) are unchanged. The subtraction is performed using
+1's complement arithmetic.</p>
+
+<p><span class="pagenum"><a id="page10" name="page10">-10-</a></span>
+If the difference exceeds the capacity of the Accumulator, the
+overflow flip-flop will be set (see <a href="#SKIP_GROUP">Skip Group instructions</a>).</p>
+
+<p class="spacer">
+<span class="instruct">Multiply</span>(approximately 25 usec.)<br />
+mul x Y <span class="padit">Operation Code 54</span>
+</p>
+
+<p>The C(AC) are multiplied by the C(Z). The most significant
+digits of the product are left in the Accumulator and the least
+significant digits in the In-Out Register. The previous C(AC)
+are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Divide</span>(approximately 90 usec.)<br />
+div x Y <span class="padit">Operation Code 56</span>
+</p>
+
+<p>The Accumulator and the In-Out Register together form a 70 bit
+dividend. The high order part of the dividend is in the
+Accumulator. The low order part of the dividend is in the
+In-Out Register. The divisor is (Z).</p>
+
+<p>Upon completion of the division, the quotient is in the In-Out
+Register. The remainder is in the Accumulator. The sign of
+the remainder is the same as the sign of the dividend. If the
+dividend is larger than C(Z), the overflow flip-flop will be
+set and the division will not take place.</p>
+</div>
+
+<h5>Logical Instructions</h5>
+
+<div class="indentit">
+<p>
+<span class="instruct">Logical AND</span>(10 usec.)<br />
+and x Y <span class="padit">Operation Code 02</span>
+</p>
+
+<p>The bits of C(Z) operate on the corresponding bits of the
+Accumulator to form the logical AND. The result is left in
+the Accumulator. The C(Z) are unaffected by this instruction.</p>
+
+<p class="center">Logical AND Function Table</p>
+
+<table border="0" cellpadding="2" cellspacing="0" summary="">
+<colgroup>
+<col />
+<col width="50%" />
+<col />
+</colgroup>
+<tr><td align="center">AC Bit</td><td align="center">C(Z) Bit</td><td align="center">Result</td></tr>
+<tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr>
+<tr><td align="center">0</td><td align="center">1</td><td align="center">0</td></tr>
+<tr><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr>
+<tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr>
+</table>
+
+<p class="spacer">
+<span class="instruct">Exclusive OR</span>(10 usec.)<br />
+xor x Y <span class="padit">Operation Code 06</span>
+</p>
+
+<p><span class="pagenum"><a id="page11" name="page11">-11-</a></span>
+The bits of C(Z) operate on the corresponding bits of the
+Accumulator to form the exclusive OR. The result is left in
+the Accumulator. The C(Z) are unaffected by this order.</p>
+
+<p class="center">Exclusive OR Table</p>
+
+<table border="0" cellpadding="2" cellspacing="0" summary="">
+<colgroup>
+<col />
+<col width="50%" />
+<col />
+</colgroup>
+<tr><td align="center">AC Bit</td><td align="center">C(Z) Bit</td><td align="center">Result</td></tr>
+<tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr>
+<tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr>
+<tr><td align="center">1</td><td align="center">0</td><td align="center">1</td></tr>
+<tr><td align="center">1</td><td align="center">1</td><td align="center">0</td></tr>
+</table>
+
+<p class="spacer">
+<span class="instruct">Inclusive OR</span>(10 usec.)<br />
+ior x Y  <span class="padit">Operation Code 04</span>
+</p>
+
+<p>The bits of C(Z) operate on the corresponding bits of the
+Accumulator to form the inclusive OR. The result is left in
+the Accumulator. The C(Z) are unaffected by this order.</p>
+
+<p class="center">Inclusive OR Table</p>
+
+<table border="0" cellpadding="2" cellspacing="0" summary="">
+<colgroup>
+<col />
+<col width="50%" />
+<col />
+</colgroup>
+<tr><td align="center">AC Bit</td><td align="center">C(Z) Bit</td><td align="center">Result</td></tr>
+<tr><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr>
+<tr><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr>
+<tr><td align="center">1</td><td align="center">0</td><td align="center">1</td></tr>
+<tr><td align="center">1</td><td align="center">1</td><td align="center">1</td></tr>
+</table>
+</div>
+
+<h5>General Instructions</h5>
+
+<div class="indentit">
+<p>
+<span class="instruct">Load Accumulator</span>(10 usec.)<br />
+lac x Y <span class="padit">Operation Code 20</span>
+</p>
+
+<p>The C(Z) are placed in the Accumulator. The C(Z) are
+unchanged. The original C(Z) are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Deposit Accumulator</span>(10 usec.)<br />
+dac x Y <span class="padit">Operation Code 24</span>
+</p>
+
+<p>The C(AC) replace the C(Z) in the memory. The C(AC) are
+left unchanged by this instruction. The original C(Z) are lost.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page12" name="page12">-12-</a></span>
+<span class="instruct">Deposit Address Part</span>(10 usec.)<br />
+dap x Y <span class="padit">Operation Code 26</span>
+</p>
+
+<p>Octal digits 6 through 11 of the Accumulator replace the
+corresponding digits of memory register Z.</p>
+
+<p>C(AC) are unchanged as are the contents of octal digits 0
+through 5 of Z. The original contents of octal digits 6
+through 11 of Z are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Deposit Instruction Part</span>(10 usec.)<br />
+dip x Y   <span class="padit">Operation Code 30</span><br />
+</p>
+
+<p>Octal digits 0 through 5 of the Accumulator replace the
+corresponding digits of memory register Z. The Accumulator is
+unchanged as are digits 6 through 11 of Z. The original
+contents of octal digits 0 through 5 of Z are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Load In-Out Register</span>(10 usec.)<br />
+lio x Y <span class="padit">Operation Code 22</span>
+</p>
+
+<p>The C(Z) are placed in the In-Out Register. C(Z) are unchanged.
+The original C(IO) are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Deposit In-Out Register</span>(10 usec.)<br />
+dio x Y <span class="padit">Operation Code 32</span>
+</p>
+
+<p>The C(IO) replace the C(Z) in memory. The C(IO) are
+unaffected by this instruction. The original C(Z) are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Jump</span>(5 usec.)<br />
+jmp x Y <span class="padit">Operation Code 60</span><br />
+</p>
+
+<p>The Program Counter is reset to address Z. The next instruction
+that will be executed will be taken from memory register
+Z. The original contents of the Program Counter are lost.</p>
+
+<p class="spacer">
+<span class="instruct">Jump and Save Program Counter</span>(5 usec.)<br />
+jsp x Y <span class="padit">Operation Code 62</span>
+</p>
+
+<p>The contents of the Program Counter are transferred to the
+Index Adder. When the transfer takes place, the Program
+Counter holds the address of the instruction following the jsp.
+The Program Counter is then reset to address Z. The next
+instruction that will be executed will be taken from memory
+register Z.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page13" name="page13">-13-</a></span>
+<span class="instruct">Skip if Accumulator and Z differ</span>(10 usec.)<br />
+sad x Y <span class="padit">Operation Code 50</span>
+</p>
+
+<p>The C(Z) are compared with the C(AC). If the two numbers
+are different, the Program Counter is indexed one extra
+position and the next instruction in the sequence is skipped.
+The C(AC) and the C(Z) are unaffected by this operation.</p>
+
+<p class="spacer">
+<span class="instruct">Skip if Accumulator and Z are the same</span>(10 usec.)<br />
+sas x Y <span class="padit">Operation Code 52</span>
+</p>
+
+<p>The C(Z) are compared with C(AC). If the two numbers are
+identical, the Program Counter is indexed one extra position
+and the next instruction in the sequence is skipped. The
+C(AC) and C(Z) are unaffected by this operation.</p>
+</div>
+
+<h4>Non-Indexable Memory Instructions</h4>
+
+<p>These instructions have the same word format as the indexable instructions.
+Since they operate on the index register location, x, they
+cannot be indexed.</p>
+
+<div class="indentit">
+<p>
+<span class="instruct">Skip on Negative index</span>(10 usec.)<br />
+snx x Y <span class="padit">Operation Code 46</span>
+</p>
+
+<p>The number in octal digits 7 through 11 of the instruction
+word is added to the C(x). This addition is done in the
+15 bit Index Adder using 1's complement arithmetic. If, after
+the addition, the sum is negative, the Program Counter is
+advanced one extra position and the next instruction in the
+sequence is skipped. The contents of octal digits 0-5 of
+the index register location are unaffected by this instruction.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on Positive index</span>(10 usec.)<br />
+spx x Y <span class="padit">Operation Code 44</span>
+</p>
+
+<p>The number in octal digits 7 through 11 of the instruction
+word is added to the C(x). This addition is done in the
+15 bit Index Adder using 1's complement arithmetic.</p>
+
+<p>If, after the addition, the sum is positive, the Program
+Counter is advanced one extra position and the next instruction
+in the sequence is skipped. The contents of octal digits
+0-5 of the index register location are unaffected by this
+instruction.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page14" name="page14">-14-</a></span>
+<span class="instruct">Load Index Register</span>(10 usec.)<br />
+lir x Y <span class="padit">Operation Code 14</span>
+</p>
+
+<p>The octal digits 7 through 11 (Y) of the instruction will
+replace the corresponding digits of the memory register
+specified by x. Octal digit 6 of the memory register will
+be left clear. Digits 0-5 of the memory register are unchanged.</p>
+
+<p class="spacer">
+<span class="instruct">Deposit Index Adder</span>(10 usec.)<br />
+dia x Y <span class="padit">Operation Code 16</span>
+</p>
+
+<p>The C(IA) replace the octal digits 7 through 11 of memory
+location Y. Octal digit 6 of Y is cleared. Digits 0 through
+5 of Y are left unchanged. The x portion of the instruction
+is ignored.</p>
+</div>
+
+<h4>Non-Memory Instructions</h4>
+
+<h5>Rotate and Shift Group</h5>
+
+<p>This group of instructions will rotate or shift the Accumulator
+and/or the In-Out Register. When the two registers operate
+combined, the In-Out Register is considered to be a 36 bit magnitude
+extension of the right end of the Accumulator.</p>
+
+<p>Rotate is a non-arithmetic cyclic shift. That is, the two ends of
+the register are logically tied together and information is
+rotated as though the register were a ring.</p>
+
+<p>Shift is an arithmetic operation and is in effect multiplication of
+the number in the register by 2<sup>+N</sup>, where N is the number of shifts.
+Shift or rotate instructions involving more than 33 steps can be
+used for simulating time delays. 36 rotate steps of the Accumulator
+will return all information to its original position.</p>
+
+<div class="indentit">
+<p>
+<span class="instruct">Rotate Accumulator Right</span>(13 usec. maximum for 36 shifts)<br />
+rar N <span class="padit">Operation Code 671</span>
+</p>
+
+<p>This instruction will rotate the bits of the Accumulator
+right N positions, where N is octal digits 7-11 of the
+instructions word.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page15" name="page15">-15-</a></span>
+
+<span class="instruct">Rotate Accumulator Left</span>(13 usec. maximum for 36 shifts)<br />
+ral N <span class="padit">Operation Code 661</span>
+</p>
+
+<p>This instruction will rotate the bits of the Accumulator left
+N Positions, where N is octal digits 7-11 of the instruction
+word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift Accumulator Right</span>(13 usec. maximum for 36 shifts)<br />
+sar N <span class="padit">Operation Code 675</span>
+</p>
+
+<p>This instruction will shift the contents of the Accumulator
+right N positions, where N is octal digits 7-11 of the instruction
+word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift Accumulator Left</span>(13 usec. maximum for 36 shifts)<br />
+sal N <span class="padit">Operation Code 665</span>
+</p>
+
+<p>This instruction will shift the contents of the Accumulator
+left N positions, where N is octal digits 7-11 of the
+instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Rotate In-Out Register Right</span>(13 usec. maximum for 36 shifts)<br />
+rir N <span class="padit">Operation Code 672</span>
+</p>
+
+<p>This instruction will rotate the bits of the In-Out Register
+right N positions, where N is octal digits 7-11 of the
+instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Rotate In-Out Register Left</span>(13 usec. maximum for 36 shifts)<br />
+ril N <span class="padit">Operation Code 662</span>
+</p>
+
+<p>This instruction will rotate the bits of the In-Out Register
+left N positions, where N is octal digits 7-11 of the
+instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift In-Out Register Right</span>(13 usec. maximum for 36 shifts)<br />
+sir N <span class="padit">Operation Code 676</span>
+</p>
+
+<p>This instruction will shift the contents of the In-Out Register
+right N positions, where N is octal digits 7-11 of the
+instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift In-Out Register Left</span>(13 usec. maximum for 36 shifts)<br />
+sil N <span class="padit">Operation Code 666</span>
+</p>
+
+<p><span class="pagenum"><a id="page16" name="page16">-16-</a></span>
+This instruction will shift the contents of the In-Out
+Register left N positions, where N is octal digits 7-11 of
+the instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Rotate AC and IO Right</span>(13 usec. maximum for 36 shifts)<br />
+rcr N <span class="padit">Operation Code 673</span>
+</p>
+
+<p>This instruction will rotate the bits of the combined
+register right in a single ring N positions, where N is octal
+digits 7-11 of the instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Rotate AC and IO Left</span>(13 usec. maximum for 36 shifts)<br />
+rcl N <span class="padit">Operation Code 663</span>
+</p>
+
+<p>This instruction will rotate the bits of the combined register
+left in a single ring N position, where N is octal digits
+7-11 of the instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift AC and IO Right</span>(13 usec. maximum for 36 shifts)<br />
+scr N <span class="padit">Operation Code 677</span>
+</p>
+
+<p>This instruction will shift the contents of the combined
+register right N <ins class="trchange" title="Added comma">positions,</ins> where N is octal digits 7-11 of
+the instruction word.</p>
+
+<p class="spacer">
+<span class="instruct">Shift AC and IO Left</span>(13 usec. maximum for 36 shifts)<br />
+scl N <span class="padit">Operation Code 667</span>
+</p>
+
+<p>This instruction will shift the contents of the combined
+registers <ins class="trchange" title="Moved comma. Was 'left, N positions'">left N positions,</ins> where N is octal digits 7-11 of
+the instruction word.</p>
+</div>
+
+<hr class="invis" />
+
+<p>
+<span class="instruct"><a id="SKIP_GROUP" name="SKIP_GROUP">Skip Group</a></span>(5 usec.)<br />
+skp Y <span class="padit">Operation Code 64</span>
+</p>
+
+<p>This group of instructions senses the state of various flip-flops
+and switches in the machine. It does not require any reference to
+memory. The address portion of the instruction selects the particular
+function to be sensed. All members of this group have the
+same operation code.</p>
+
+<div class="indentit">
+<p>
+<span class="instruct">Skip on ZERO Accumulator</span>(5 usec.)<br />
+sza Address 100<br />
+</p>
+
+<p><span class="pagenum"><a id="page17" name="page17">-17-</a></span>
+If the Accumulator is equal to plus ZERO (all bits are ZERO)
+the Program Counter is advanced one extra position and the
+next instruction in the sequence is skipped.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on Plus Accumulator</span>(5 usec.)<br />
+spa Address 200<br />
+</p>
+
+<p>If the sign bit of the Accumulator is ZERO, the Program Counter
+is advanced one extra position and the next instruction in
+the sequence is skipped.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on Minus Accumulator</span>(5 usec.)<br />
+sma Address 400<br />
+</p>
+
+<p>If the sign bit of the Accumulator is ONE, the Program Counter
+is advanced one extra position and the next instruction in the
+sequence is skipped.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on ZERO Overflow</span>(5 usec.)<br />
+szo Address 1000<br />
+</p>
+
+<p>If the overflow flip-flop is a ZERO the Program Counter is
+advanced one extra position and the next instruction in the
+sequence will be skipped. The overflow flip-flop is cleared
+by this instruction. This flip-flop is set by addition,
+subtraction, or division that exceeds the capacity of the
+Accumulator. The overflow flip-flop is not cleared by arithmetic
+operations which do not cause an overflow. Thus, a
+whole series of arithmetic operations may be checked for
+correctness by a single szo. The overflow flip-flop is cleared
+by the "Start" Switch.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on Plus In-Out Register</span>(5 usec.)<br />
+spi Address 2000<br />
+</p>
+
+<p>If the sign digit of the In-Out Register is ZERO the Program
+Counter is indexed one extra position and the next instruction
+in the sequence is skipped.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on ZERO Switch</span>(5 usec.)<br />
+szs Addresses 10, 20, ... 70<br />
+</p>
+
+<p>If the selected Sense Switch is ZERO, the Program Counter is
+advanced one extra position and the next instruction in the<span class="pagenum"><a id="page18" name="page18">-18-</a></span>
+sequence will be skipped. Address 10 senses the position of
+Sense Switch 1, Address 20 Switch 2, etc. Address 70 senses
+all the switches. If 70 is selected all 6 switches must be
+ZERO to cause the skip to occur.</p>
+
+<p class="spacer">
+<span class="instruct">Skip on ZERO Program Flag</span>(5 usec.)<br />
+szf Addresses 0 to 7 inclusive<br />
+</p>
+
+<p>If the selected program flag is a ZERO, the Program Counter is
+advanced one extra position and the next instruction in the
+sequence will be skipped. Address 0 is no selection. Address
+1 selects program flag one, etc. Address 7 selects all
+programs flags. All flags must be ZERO to cause the skip.</p>
+
+<p>The instructions in the One Cycle Skip group may be combined
+to form the inclusive OR of the separate skips. Thus, if
+address 3000 is selected, the skip would occur if the overflow
+flip-flop equals ZERO or if the In-Out Register is positive.
+The combined instruction would still take 5 microseconds.</p>
+</div>
+
+<hr class="invis" />
+
+<p>
+<span class="instruct">Operate Group</span>(5 usec.)<br />
+opr Y <span class="padit">Operation Code 76</span>
+</p>
+
+<p>This instruction group performs miscellaneous operations on various
+Central Processor Registers. The address portion of the instruction
+specifies the action to be performed.</p>
+
+<div class="indentit">
+<p>
+<span class="instruct">Clear In-Out Register</span>(5 usec.)<br />
+cli Address equal 4000<br />
+</p>
+
+<p>This instruction clears the In-Out Register.</p>
+
+<p class="spacer">
+<span class="instruct">Load Accumulator from Test Word</span>(5 usec.)<br />
+lat Address 2000<br />
+</p>
+
+<p>This instruction forms the inclusive OR of the C(AC) and the
+contents of the Test Word. This instruction is usually
+combined with address 200 (clear Accumulator), so that C(AC)
+will equal the contents of the Test Word Switches.</p>
+
+<p class="spacer">
+<span class="instruct">Complement Accumulator</span>(5 usec.)<br />
+cma Address 1000<br />
+</p>
+
+<p>This instruction complements (makes negative) the contents of
+the Accumulator.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page19" name="page19">-19-</a></span>
+
+<span class="instruct">Halt</span><br />
+hlt Address 400<br />
+</p>
+
+<p>This instruction stops the computer.</p>
+
+<p class="spacer">
+<span class="instruct">Clear Accumulator</span>(5 usec.)<br />
+cla Address 200<br />
+</p>
+
+<p>This instruction clears (sets equal to plus 0) the contents of
+the Accumulator.</p>
+
+<p class="spacer">
+<span class="instruct">Clear Selected Program Flag</span>(5 usec.)<br />
+clf Address 01 to 07 inclusive<br />
+</p>
+
+<p>The selected program flag will be cleared. Address 00 selects
+no program flag, 01 clears program flag 1, 02 clears program
+flag 2, etc. Address 07 clears all program flags.</p>
+
+<p class="spacer">
+<span class="instruct">Set Selected Program Flag</span>(5 usec.)<br />
+stf Address 11 to 17 inclusive<br />
+</p>
+</div>
+
+<hr class="invis" />
+
+<p>
+<span class="instruct">In-Out Transfer Group</span>(5 usec. without in-out wait)<br />
+iot x Y Operation Code 72<br />
+</p>
+
+<p>The variations within this group of instructions perform all the
+in-out control and information transfer functions. If bit six
+(normally the Indirect Address bit) is a ONE, the computer will
+halt and wait for the completion pulse from the device activated.
+When this device delivers its completion, the computer will resume
+operation of the instruction sequence.</p>
+
+<p>An incidental fact which may be of importance in certain scientific
+or real time control applications is that the time origin of operations
+following an in-out completion pulse is identical with the
+time of that pulse.</p>
+
+<p>Most in-out operations require a <ins class="trchange" title="Was 'know'">known</ins> minimum time before completion.
+This time may be utilized for programming. The appropriate
+In-Out Transfer is given with no in-out wait (bit six a ZERO).
+The instruction sequence then continues. This sequence must include
+an iot instruction which performs nothing but the in-out wait.
+This last instruction must occur before the safe minimum time. A
+table of minimum times for all in-out devices is delivered with<span class="pagenum"><a id="page20" name="page20">-20-</a></span>
+the computer. It lists minimum time before completion pulse and
+minimum In-Out Register free time.</p>
+
+<p>The details of the In-Out Transfer variations are listed under
+Input-Output.</p>
+
+<div class="indentit">
+<p>The mnemonic codes and addresses for the standard equipment are:</p>
+
+<p>
+<span class="instruct">Read Paper Tape Alphanumeric Mode</span><br />
+rpa Address 1<br />
+<br />
+<span class="instruct">Read Paper Tape Binary Mode</span><br />
+rpb Address 2<br />
+<br />
+<span class="instruct">Typewriter Output</span><br />
+tyo Address 3<br />
+<br />
+<span class="instruct">Typewriter Input</span><br />
+tyi Address 4<br />
+<br />
+<span class="instruct">Punch Paper Tape Alphanumeric Mode</span><br />
+ppa Address 5<br />
+<br />
+<span class="instruct">Punch Paper Tape Binary Mode</span><br />
+ppb Address 6<br />
+</p>
+</div>
+
+<h3><a name="MANUAL_CONTROLS" id="MANUAL_CONTROLS"></a>MANUAL CONTROLS</h3>
+
+<p>The Console of PDP-3 has controls and indicators for the use of the
+operator. Fig. 4 is a close-up of the control panel of PDP-1,
+the 18 bit version of PDP-3. All computer flip-flops have indicator
+lights on the Console. These indicators are primarily for
+use when the machine has stopped or when the machine is being
+operated one step at a time. While the machine is running, the
+brightness of an indicator bears some relationship to the relative
+duty factor of that particular flip-flop.</p>
+
+<p>Three registers of toggle switches are available on the Console.
+These are the Test Address (15 bits), the Test Word (36 bits), and
+the Sense <ins class="trchange" title="Removed inconsistent comma">Switches</ins> (6 bits). The first two are used in conjunction
+with the operating push buttons. The Sense Switches are present
+for manual intervention. The use of these switches is determined
+by the program (see <a href="#FIGURE_1">System Block Diagram</a> and <a href="#SKIP_GROUP">Skip Group Instructions</a>).</p>
+
+<h4><span class="pagenum"><a id="page21" name="page21">-21-</a></span>
+Operating Push Buttons</h4>
+
+<div class="indentit">
+<p><i>Start</i> &mdash; When this switch is operated, the computer will start.
+The first instruction comes from the memory location indicated
+in the Test Address Switches.</p>
+
+<p><i>Stop</i> &mdash; The computer will come to a halt at the completion of the
+current memory cycle.</p>
+
+<p><i>Continue</i> &mdash; The computer will resume operation starting at the
+state indicated by the lights.</p>
+
+<p><i>Examine</i> &mdash; The contents of the memory register indicated in the
+Test Address will be displayed in the Accumulator and the
+Memory Buffer lights.</p>
+
+<p><i>Deposit</i> &mdash; The word selected by the Test Word Switches will be
+put in the memory location indicated by the Test Address
+Switches.</p>
+
+<p><i>Read-In</i> &mdash; When this switch is operated, the photoelectric paper
+tape reader will start operating in the Read-In mode. (see
+<a href="#STANDARD_INPUT-OUTPUT">Input-Output</a>).</p>
+</div>
+
+<p>In addition to the operating push buttons, there are several separate
+toggle switches.</p>
+
+<div class="indentit">
+<p><i>Single Cycle Switch</i> &mdash; When the Single Cycle Switch is on, the
+computer will halt at the completion of each memory <ins class="trchange" title="Changed comma to period">cycle.</ins> This
+switch is particularly useful in debugging programs. Repeated
+operation of the Continue Switch button will step the program one
+cycle at a time. The programmer is thus able to examine the
+machine states at each step.</p>
+
+<p><i>Test Switch</i> &mdash; When the Test Switch is on, the computer will
+perform the instruction indicated in the Test Address location.
+It will repeat this instruction either at the normal speed rate
+or at a single cycle rate if the Single Cycle Switch is up.
+This switch is primarily useful for maintenance purposes.</p>
+
+<p><i>Sense Switches</i> &mdash; There are six switches on the Console which are
+present for manual intervention.</p>
+</div>
+
+<hr />
+
+<p><span class="pagenum"><a id="page22" name="page22">-22-</a></span></p>
+<h2><a name="STORAGE" id="STORAGE"></a>STORAGE</h2>
+
+<p>The internal Memory System for PDP-3 consists of modules of 4096
+words of coincident current magnetic core storage. Each word has
+36 bits. The memory modules operate with a read-rewrite cycle time
+of 5 microseconds. The driving currents of the memory are automatically
+adjusted to compensate for normal room temperature
+variations.</p>
+
+<p>Each core memory module consists of the memory stack, the required
+X and Y switches, the X and Y current sources and sense amplifiers
+for that stack.</p>
+
+<p>The Memory Address Register, the Memory Buffer Register, and the
+Memory Timing Controls are considered to be part of the Central
+Processor. The standard PDP-3 Memory Address Register configuration
+is built to allow up to 8 modules of core memory (32,768 words).
+There is a space in the addressing section of the machine to allow
+expansion of the addressing by a factor of eight for a total addressing
+capacity of 262,144 memory registers.</p>
+
+<p>The Core Memory may be supplemented by Magnetic Tape Storage.
+This is described under Input-Output.</p>
+
+<hr />
+
+<p><span class="pagenum"><a id="page23" name="page23">-23-</a></span></p>
+<h2><a name="STANDARD_INPUT-OUTPUT" id="STANDARD_INPUT-OUTPUT"></a>STANDARD INPUT-OUTPUT</h2>
+
+<p>The PDP-3 is designed to accommodate a variety of input-output
+equipment. Standard input-output units include a Paper Tape Reader,
+Paper Tape Punch and an Electric Typewriter.</p>
+
+<p>A single instruction, In-Out Transfer (see <a href="#CENTRAL_PROCESSOR">Central Processor</a>),
+performs all in-out operations through the 36 bit In-Out Register.
+The address portion of this instruction specifies the in-out
+function. One bit of the instruction selects an in-out halt as
+required.</p>
+
+<h3><a name="PAPER_TAPE_READER" id="PAPER_TAPE_READER"></a>PAPER TAPE READER</h3>
+
+<p>The Paper Tape Reader of the PDP-3 is a photoelectric device
+capable of reading 300 lines per second. Six lines form the
+standard 36 bit word when reading binary punched eight hole tape.
+Five, six and seven hole tape may also be read.</p>
+
+<p>The reader will operate in one of two basic modes or in a third
+special mode.</p>
+
+<div class="indentit">
+<p>
+Alphanumeric Mode<br />
+rpa <span class="padit">iot 1</span>
+</p>
+
+<p>In this mode, one line of tape is read for each In-Out
+Transfer. All eight holes of the line are read. The
+information is left in the right eight bits of the
+In-Out Register, the remainder of the register being
+left clear. The standard PDP alphanumeric paper tape
+code includes an odd parity bit which may be checked
+by the program. Tape of non-standard width would be
+read in this mode.</p>
+
+<p class="spacer">
+Binary Mode<br />
+rpb <span class="padit">iot 2</span>
+</p>
+
+<p>For each In-Out Transfer instruction, six lines of paper
+tape are read and assembled in the In-Out Register to
+form a full computer word. For a line to be recognized
+in this mode, the eighth hole must be punched; i.e., lines
+with no eighth hole will be skipped over. The seventh
+hole is ignored. The pattern of holes in the binary tape
+is arranged so as to be easily interpreted visually in
+terms of machine instruction.</p>
+
+<p class="spacer"><span class="pagenum"><a id="page24" name="page24">-24-</a></span>
+Read-In Mode</p>
+
+<p>This is a special mode activated by the "Read-In" Switch
+on the Console. It provides a means of entering programs
+which neither rely on read-in programs in memory nor
+require a plug board. Pushing the "Read-In" Switch starts
+the reader in the binary mode. The first group of six lines
+and alternate succeeding groups of six lines are interpreted
+as "Read-In" mode instructions. Even-numbered groups of 6
+lines are data. The "Read-In" mode instructions must be
+either "deposit in-out" (dio Y) or "jump" (jmp Y). If the
+instruction is dio Y, the next group of six binary lines
+will be stored in memory location Y and the reader continues
+moving. If the instruction is jmp Y, the "Read-In"
+mode is terminated and the computer will commence operation
+at the address of the jump instruction.</p>
+</div>
+
+<h3><a name="PAPER_TAPE_PUNCH" id="PAPER_TAPE_PUNCH"></a>PAPER TAPE PUNCH</h3>
+
+<p>The standard PDP-3 Paper Tape Punch has a nominal speed of 20
+lines per second. It can operate in either the alphanumeric
+mode or the binary mode.</p>
+
+<div class="indentit">
+<p>
+Alphanumeric Mode<br />
+ppa <span class="padit">iot 5</span>
+</p>
+
+<p>For each In-Out Transfer instruction one line of tape is
+punched. In-Out Register bit 35 conditions hole #1. Bit
+34 conditions hole #2, etc. Bit 28 conditions hole #8.</p>
+
+<p class="spacer">
+Binary Mode<br />
+ppb <span class="padit">iot 6</span>
+</p>
+
+<p>For each In-Out Transfer instruction one line of tape is
+punched. In-Out Register bit five conditions hole #1.
+Bit four conditions hole #2, etc. Bit zero conditions
+hole #6. Hole #7 is left blank. The #8 hole is always
+punched in this mode.</p>
+</div>
+
+<h3><a name="TYPEWRITER" id="TYPEWRITER"></a>TYPEWRITER</h3>
+
+<p>The Typewriter will operate in the input mode or the output mode.</p>
+
+<div class="indentit">
+<p><span class="pagenum"><a id="page25" name="page25">-25-</a></span>
+Output Mode<br />
+tyo  <span class="padit">iot 3</span>
+</p>
+
+<p>For each In-Out Transfer instruction one character is
+typed. The character is specified by the right six bits
+of the In-Out Register.</p>
+
+<p class="spacer">
+Input Mode<br />
+tyi <span class="padit">iot 4</span>
+</p>
+
+<p>This operation is completely asynchronous and is therefore
+handled differently than any of the preceding in-out
+operations.</p>
+
+<p>When a Typewriter key is struck, Program Flag Number One
+is set. At the same time the code for the struck key is
+presented to gates connected to the right six bits of the
+In-Out Register. This information will remain at the gate
+for a relatively long time by virtue of the slow mechanical
+action. A program designed to accept typed-in data would
+periodically check the status of Program Flag One. If at
+any time Program Flag One is found to be set, an In-Out
+Transfer instruction with address four must be executed for
+information to be transferred. This In-Out Transfer normally
+should not use the optional in-out halt. The information
+contained in the Typewriter's coder is then read into the
+right six bits of the In-Out Register.</p>
+</div>
+
+<hr />
+
+<p><span class="pagenum"><a id="page26" name="page26">-26-</a></span></p>
+<h2><a name="OPTIONAL_INPUT-OUTPUT" id="OPTIONAL_INPUT-OUTPUT"></a>OPTIONAL INPUT-OUTPUT</h2>
+
+<p>The PDP-3 is designed to accommodate a variety of input-output
+equipment. Of particular interest is the ease with which new,
+and perhaps unusual, external equipment can be added to the
+machine. Optional in-out devices include Cathode Ray Tube Display,
+Magnetic Tape, Real Time Clock, Line Printer and Analog to Digital
+Converters. The method of operation of PDP-3 with these optional
+devices is similar to the standard input-output equipment.</p>
+
+<h3><a name="SEQUENCE_BREAK_SYSTEM" id="SEQUENCE_BREAK_SYSTEM"></a>SEQUENCE BREAK SYSTEM</h3>
+
+<p>An optional in-out control is available for PDP-3. This control,
+termed the Sequence Break System, allows concurrent operation of
+several in-out devices and the main sequence. The system has,
+nominally, 16 automatic interrupt channels arranged in a priority
+chain.</p>
+
+<p>A break to a particular sequence may be initiated by the completion
+of an in-out device, the program, or an external signal. If this
+sequence has priority, the C(AC), C(IO), C(PC), and C(IA) are
+stored in three fixed memory locations unique to that sequence.
+Since the C(PC) and C(IA) are eighteen bits each, these two registers
+are stored in one memory location. The next instruction is
+taken from a fourth location. This instruction is usually a jump
+to a suitable routine. The program is now operating in the new
+sequence. This new sequence may be broken by a higher priority
+sequence. A typical program loop for handling an in-out sequence
+would contain 3 to 5 instructions, including the appropriate iot.
+These are followed by load AD and load IO from the fixed locations
+and a special indirect jump through the location of the previous
+C(PC). This special jump also loads the IA. This last instruction
+terminates the sequence.</p>
+
+<h3><a name="HIGH_SPEED_IN-OUT_CHANNEL" id="HIGH_SPEED_IN-OUT_CHANNEL"></a>HIGH SPEED IN-OUT CHANNEL</h3>
+
+<p>The device connected to an in-out channel communicates directly
+with memory through the Memory Buffer Register. At the completion
+of each machine instruction, a check is made to see if the in-out
+channel has a word for, or needs a word from, the memory. When
+necessary, a memory cycle is taken to serve the channel. The
+operation is initiated by an in-out command. The in-out transfer
+command indicates the nature of the transfer. The left half of<span class="pagenum"><a id="page27" name="page27">-27-</a></span>
+the In-Out Register must contain the starting address of the transfer,
+and the right half must contain the number of words to be
+transferred. If the Sequence Break System is connected, the completion
+of the transfer will signal the proper sequence. If no
+Sequence Break System is connected, the completion of the in-out
+channel transfer sets a program flag.</p>
+
+<h3><a name="MAGNETIC_TAPE" id="MAGNETIC_TAPE"></a>MAGNETIC TAPE</h3>
+
+<p>The system consists of tape units connected to the PDP-3 through
+a tape control (TC). This tape is read or written in IBM 729I
+format. Two hundred characters, each having 6 bits plus a parity
+bit, are written on each inch of tape and the tape moves at 75
+inches/sec. The tape control has the job of connecting a specific
+unit to the PDP-3 and is a switch. It also has the function of
+controlling the format of information that is read or written on
+tape. In-out class commands instruct TC to the type of information
+transfer and select the tape unit. Another IOT command synchronizes
+the transfer of information through the TC to the computer.</p>
+
+<p>The IOT order to select the unit and function is decoded as follows:
+1) Three bits specify the function of TC. 2) The remaining 6 bits
+select the unit.</p>
+
+<p class="center"><i>IOT Motion Commands for Magnetic Tape Units</i></p>
+
+<table border="0" cellpadding="2" cellspacing="0" summary="">
+<tr><td align="center"><i>IOT Code</i></td><td align="center"><i>Abbreviation</i></td><td align="center"><i>Function</i></td></tr>
+<tr><td align="left">73....nn 60</td><td align="center">mrb</td><td align="left">Read a binary record.</td></tr>
+<tr><td align="left">73....nn 61</td><td align="center">mra</td><td align="left">Read an alphanumeric (BCD) record.</td></tr>
+<tr><td align="left">73....nn 62</td><td align="center">mbb</td><td align="left">Backspace a binary record.</td></tr>
+<tr><td align="left">73....nn 63</td><td align="center">mba</td><td align="left">Backspace an alphanumeric record.</td></tr>
+<tr><td align="left">73....nn 64</td><td align="center">mwb</td><td align="left">Write a binary record.</td></tr>
+<tr><td align="left">73....nn 65</td><td align="center">mwa</td><td align="left">Write an alphanumeric record.</td></tr>
+<tr><td align="left">73....nn 66</td><td align="center">mlp</td><td align="left">Move tape to lead point (rewind).</td></tr>
+</table>
+
+<p class="center">Where the octal digits, nn, specify the unit number.</p>
+
+<p>The motion commands have the deferred bit, thus, the program
+halts. If the TC is free, the command will be transferred to the
+tape control for action and the program restarts immediately. If
+the tape control is currently busy with an instruction, i.e., it
+hasn't finished a previous command, the motion command is held up
+until TC is free to execute the new command.</p>
+
+<p><span class="pagenum"><a id="page28" name="page28">-28-</a></span>
+The transfer of information from the computer to the TC is accomplished
+with the pause and skip command, MPS or IOT 70. This
+command has the deferred bit and halts a program until the TC can
+handle the transfer. On completion, the transfer occurs and the
+program restarts. This is used exclusively to synchronize the
+flow of information between a tape unit and the computer. This
+command normally skips the following instruction. If a flag is
+set in the TC, indicating incorrect information flow, the skip
+does not take place.</p>
+
+<p>The TC contains a 36 bit buffer which holds a complete word while
+information is read or written. When an MPS order is given and
+the unit is reading, the TC buffer is read into the IO. The MPS
+order given during writing causes the IO to be transferred to the
+TC buffer.</p>
+
+<p>Various conditions occurring in the TC cause the no-skip condition,
+when an MPS is given. Tape control flags are examined by the
+command, examine and clear flags, MEC or IOT 71. When MEC is
+given, the flags are put into the IO for program interrogation,
+and the flags cleared. The flags are: parity, end of tape, an
+end of record flag, and reading-writing check.</p>
+
+<p>The parity flag is set if the parity condition is not met while
+the tape is being read (during MWA, MWB, MRA, or MRB).</p>
+
+<p>The end of tape flag is set when the tape comes to the end of
+tape, moving in either direction.</p>
+
+<p>Three conditions set the read-write check flag: 1) If TC is
+inactive, i.e., no unit or function selected, and an MPS instruction
+is given. The MPS becomes a no-operation, no-halt instruction.
+2) When reading information and not emptying the TC buffer, by
+giving an MPS before more information arrives from tape. 3) A unit
+becomes unavailable during a normal sequence.</p>
+
+<p>The end of record flag is set during reading or backspacing when
+the <ins class="trchange" title="Was 'tpae'">tape</ins> comes to an end of record gap.</p>
+
+<p class="center"><i>Writing a Record of Information</i></p>
+
+<p>Information is written on the tape by giving a MWB or MWA command.
+This sets a write binary or a write alphanumeric into the TC and<span class="pagenum"><a id="page29" name="page29">-29-</a></span>
+selects the unit. A motion select command is executed immediately
+if the TC is free, otherwise, the command waits until it can be
+executed. Normal programming can continue after the MWA or MWB
+is given for approximately 5 milliseconds. At this time, an MPS
+order is given and the program pauses until information can be
+written. When the MPS is restarted, information is transferred
+to the TC buffer from the IO. If no flags have been set, the
+following instruction is skipped.</p>
+
+<p>Three-quarter inches of blank tape is written by giving either the
+MWA or MWB order. An end of file is written as follows: 1) Four
+MWA commands write three inches of blank tape. 2) Then end of file
+character is written by giving the MPS order.</p>
+
+<p>Information is read and checked for correct parity while writing.</p>
+
+<p>If too many program steps are given between the motion select
+command, MWA or MWB and the first MPS, the unit will <ins class="trchange" title="Standardized from 'de-select'">deselect</ins>
+(or disconnect). The MPS is then a no-operation command.</p>
+
+<p class="center"><i>Writing Program</i></p>
+
+<p>As an example, a program to write k words in binary format from
+storage beginning in register A, using tape unit number 04, is
+shown. The following program is written in standard FRAP language.
+The program begins in register enterwrite.</p>
+
+<table border="0" cellpadding="1" cellspacing="1" summary="">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<tr><td align="center">enterwrite</td><td align="left">mec</td><td align="left">,clear flags initially</td></tr>
+<tr><td /><td align="left">mwb 400</td><td align="left">,73000000464</td></tr>
+<tr><td /><td align="left">lir x/-k+1</td><td align="left">,initialize index register x</td></tr>
+<tr><td align="center">b</td><td align="left">lio x/a+k-1</td><td align="left">,begin loop</td></tr>
+<tr><td /><td align="left">mps</td><td align="left">,wait for TC then write C(Z)</td></tr>
+<tr><td /><td align="left">jmp c</td><td align="left">,error</td></tr>
+<tr><td /><td align="left">spx x/1</td><td align="left">,add 1 to index register x</td></tr>
+<tr><td /><td align="left">jmp b</td><td align="left">,return of loop</td></tr>
+<tr><td /><td align="left">jmp done</td><td align="left">,record written</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align="center">c</td><td align="left">mec</td><td align="left">,tape error</td></tr>
+<tr><td /><td align="left">ril 1</td></tr>
+<tr><td /><td align="left">spi</td></tr>
+<tr><td /><td align="left">jmp rwcstop</td><td align="left">,read-write error or tape fault</td></tr>
+<tr><td /><td align="left">ril 1</td></tr>
+<tr><td /><td align="left">spi</td></tr>
+<tr><td /><td align="left">jmp b+3</td><td align="left">,tape end</td></tr>
+<tr><td /><td align="left">hlt</td><td align="left">,tape parity</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align="center">done</td><td /><td align="left">,resume programming</td></tr>
+</table>
+
+<p class="center"><span class="pagenum"><a id="page30" name="page30">-30-</a></span></p>
+<p class="center"><i>Reading Information</i></p>
+
+<p>Information is read by giving the MRA or MRB order. Almost 10
+ms. is available after a read order is given before information
+actually enters the TC buffer.</p>
+
+<p>To read a record of unknown length, the read order is first given.
+The MPS order halts the program until six characters are assembled
+in the TC information buffer. The next instruction after the MPS,
+a jump instruction, transfers control from the loop when any flag
+is set. The next instruction deposits the IO. The record length
+is determined by not skipping after the MPS order on the setting
+of the end of record flag. The read-write check flag or the end
+of record flag is then interrogated to see that the tape is
+actually at the end of record. If a tape is not at the end of
+record, then the tape is either at the end of the reel, or a
+parity check has occurred.</p>
+
+<p class="center"><i>Reading Program</i></p>
+
+<p>Program to read j binary words into storage beginning in register
+d, using tape unit 10, j is unknown. The program begins in
+register enteread.</p>
+
+<table border="0" cellpadding="1" cellspacing="1" summary="">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<tr><td align="center">enteread</td><td align="left">mec</td><td align="left">,clear flags initially</td></tr>
+<tr><td /><td align="left">mrb 1000</td><td align="left">,730000001060</td></tr>
+<tr><td /><td align="left">dzm x</td><td align="left">,put zero in memory location x</td></tr>
+<tr><td align="center">e</td><td align="left">mps</td></tr>
+<tr><td /><td align="left">jmp outcheck</td></tr>
+<tr><td /><td align="left">dio x/d</td><td align="left">,store in location modified by x</td></tr>
+<tr><td /><td align="left">snx x/+1</td><td align="left">,add 1 to C(x)</td></tr>
+<tr><td /><td align="left">jmp e</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align="center">outcheck</td><td align="left">mec</td><td align="left">,examine flags</td></tr>
+<tr><td /><td align="left">spi</td><td align="left">,end of record?</td></tr>
+<tr><td /><td align="left">jmp recordend</td><td align="left">,yes</td></tr>
+<tr><td /><td align="left">hlt</td><td align="left">,error</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align="center">recordend</td><td align="left">snx x/+1</td><td align="left">,to find value of j</td></tr>
+<tr><td /><td align="left">"</td><td align="left">,resume programming C(IA) = j</td></tr>
+<tr><td /><td align="left">"</td></tr>
+<tr><td /><td align="left">"</td></tr>
+<tr><td /><td align="left">"</td></tr>
+</table>
+
+<p class="center"><span class="pagenum"><a id="page31" name="page31">-31-</a></span></p>
+<p class="center"><i>Forward Spacing</i></p>
+
+<p>Forward spacing is done by giving an MRB or MRA order. This moves
+the tape forward with the read-write head positioned at the end
+of the following record. If n read orders are given, the tape is
+spaced forward n records. By giving the MEC order, parity flags
+are examined to see that information on tape has been read correctly.</p>
+
+<p class="center"><i>Backspacing</i></p>
+
+<p>By giving an MBA or MBB order the tape is moved backwards a record
+with the read-write heads positioned in the previous end of record
+gap. The end of record flag is set when the tape has moved backwards
+a record.</p>
+
+<p class="center"><i>Rewinding</i></p>
+
+<p>Rewinding is accomplished by giving the rewind order, move tape to
+load point, MLP. The rewind order starts a unit rewinding and
+does not tie up the TC. If a motion command is given which calls
+for a unit that is rewinding, the command is executed, but the
+action will not take place until the unit is available.</p>
+
+<p class="center"><i>Unit Availability</i></p>
+
+<p class="center">A unit is unavailable to the program under the following conditions:</p>
+
+<ol><li>Unit is rewinding.</li>
+<li>Tape is improperly loaded.</li>
+<li>Cover door open.</li>
+<li>Unit overloaded.</li>
+<li>Unit under manual control.</li>
+<li>Power off.</li>
+</ol>
+
+<p>A selected but unavailable unit holds up the TC if a motion order
+is given for the unit. The TC will be held up until the unit is
+ready.</p>
+
+<p class="center"><span class="pagenum"><a id="page32" name="page32">-32-</a></span>
+<i>Flag Positions</i></p>
+
+<table border="0" cellpadding="2" cellspacing="0" summary="">
+<colgroup>
+<col width="30%" />
+<col width="50%" />
+</colgroup>
+<tr><td align="center"><i>IO Bit</i></td><td align="center"><i>Flag</i></td></tr>
+<tr><td align="center">0</td><td align="left">EOR &mdash; End of record</td></tr>
+<tr><td align="center">1</td><td align="left">RWF &mdash; Read-Write</td></tr>
+<tr><td align="center">2</td><td align="left">EOT &mdash; End of Tape</td></tr>
+<tr><td align="center">3</td><td align="left">Parity</td></tr>
+</table>
+
+<p class="center"><i>Connection with High Speed Channel</i></p>
+
+<p>The high speed channel directs the tape control, and word transfer,
+just as a program would. A unit is first started reading or writing.
+The high speed channel is given the memory location of the
+information, and the number of registers the words read or written
+will occupy. The channel effects the information transfer. Thus,
+a high speed channel connected to a tape control handles the
+programming for the unit word transfers.</p>
+
+<p>Completion of the block transfer is signified by either setting a
+program flag, or entering the sequence break.</p>
+
+<p class="center"><i>Connection with Sequence Break System</i></p>
+
+<p>When the TC is connected to the Sequence Break System, the program
+is automatically interrupted each time an MPS command needs to be
+given.</p>
+
+<p>Programming is unaffected during reading and a record may be read
+with no flags set. The TC initiates breaks so that an MPS may be
+given in time.</p>
+
+<p>Similarly, the break is initiated during writing each time an MPS
+needs to be given.</p>
+
+<p class="center"><i>Motion Command Summary</i></p>
+
+<table border="0" cellpadding="4" cellspacing="0" summary="">
+<tr><td /><td align="center"><i>Time before first MPS</i></td>
+    <td align="center"><i>Time between MPS's</i></td>
+    <td align="center"><i>Time after End of Record to deselect</i></td>
+    <td align="center"><i>Flags that may be set</i></td>
+</tr>
+<tr><td align="left">MWA<br />MWB</td>
+    <td align="center">3 ms.</td>
+    <td align="center">400 us.<br />(longer time causes deselection)</td>
+    <td align="center">10 ms.</td>
+    <td align="left">RWF (if unit
+is deselected
+and MPS given,
+or unit becomes
+unavailable),
+Parity, EOT.</td>
+</tr>
+<tr><td align="left">MRA<br />MRB</td>
+    <td align="center">7 ms.</td>
+    <td align="center">400 us.<br />(longer time misses information, and rwc set)</td>
+    <td align="center">5 ms.</td>
+    <td align="left">RWF, (if information
+is missed, or
+unit becomes
+unavailable),
+EOT, EOR,
+Parity.</td></tr>
+<tr><td align="left">MBA<br />MBB</td>
+    <td align="center">&mdash;</td>
+    <td align="center">&mdash;</td>
+    <td align="center">10 ms.</td>
+    <td align="left">RWF (if unit
+becomes
+unavailable),
+EOR, EOT.</td></tr>
+</table>
+
+<h3><a name="CRT_DISPLAY" id="CRT_DISPLAY"></a>CATHODE-RAY-TUBE DISPLAY</h3>
+
+<p>The PDP-3 Cathode Ray Tube Display is useful for presentation of
+graphical or tabular information to the operator. It uses a 16
+inch round tube with magnetic deflection. For each In-Out transfer
+order, one point is displayed at the position indicated by the In-Out
+Register. Bits 0-9 of the IO indicate the X coordinate of the
+position, and bits 18-27 indicate the Y coordinate. The display
+takes 60 microseconds.</p>
+
+<p>An additional display option is a Light Pen. By use of this device
+the computer is signaled that the operator is interested in the
+last point displayed. Thus the program can take appropriate action
+such as changing the display or shifting operation to another
+program.</p>
+
+<p>A smaller display is available. This display uses a five inch,
+high resolution cathode ray tube. The tube is equipped with a
+mounting bezel to accept a camera or photomultiplier device. The
+operation of this display is similar to that of the 16 inch,
+except that 12 bits are decoded for each axis.</p>
+
+<h3><a name="REAL_TIME_CLOCK" id="REAL_TIME_CLOCK"></a>REAL TIME CLOCK</h3>
+
+<p>A special input register may be connected to operate as a Real
+Time Clock. This is a counting register operated by a crystal
+controlled oscillator. The clock can be reset to zero by manual
+operation. A toggle switch interlock prevents an accidental
+reset. The state of this counter may be read at any time by
+the appropriate In-Out Transfer instruction.</p>
+
+<p class="center"><span class="pagenum"><a id="page34" name="page34">-34-</a></span></p>
+<h3><a name="LINE_PRINTER" id="LINE_PRINTER"></a>LINE PRINTER</h3>
+
+<p>A 72 column Anelex printer and control are available as an option
+for PDP-3. The control contains a one line buffer. This buffer
+is cleared by the completion of an order to space the paper one
+position (psp). The buffer is filled from the In-Out Register by
+a succession of 12 load buffer orders (plb). The first plb will
+put the six characters represented by C(IO) in the leading (left-hand)
+column positions of the buffer. After the buffer is loaded,
+the order, print (pnt), is given.</p>
+
+<hr />
+
+<p class="center"><span class="pagenum"><a id="page35" name="page35">-35-</a></span></p>
+<h2><a name="UTILITY_PROGRAMS" id="UTILITY_PROGRAMS"></a>UTILITY PROGRAMS</h2>
+
+<h3><a name="FRAP_SYSTEM" id="FRAP_SYSTEM"></a>FRAP-3 &mdash; The Assembly Program</h3>
+
+<p>An assembler or compiler <ins class="trchange" title="Was 'propares'">prepares</ins> a machine language tape suitable
+for direct interpretation by the computer from a program tape in
+operator language. Generally speaking, one statement accepted by
+FRAP produces one instruction for the machine. A single statement
+written for the PDP-3 compiler, DECAL-3, may cause several instructions
+to be written. Thus, FRAP causes a 1 for 1 mapping of
+instructions for statements while DECAL may produce many instructions
+from one statement.</p>
+
+<p>In addition to allowing program tapes to be prepared with off line
+equipment, an assembly program has other functions. Normally, the
+machine would require 36 bits or 12 octal digits to be written for
+each instruction used in the machine. FRAP allows mnemonic symbols
+to be used for the instructions. These mnemonic symbols aid the
+programmer by representing the instruction in an easily remembered
+form.</p>
+
+<p>In addition to allowing mnemonic symbols to represent the instructions,
+variable length sequences of alphanumeric characters may be
+used to represent memory addresses in symbolic form. The assembly
+program does the address bookkeeping for the programmer. A short
+example of a FRAP program is on <a href="#page29">Page 29</a>.</p>
+
+<p>Since few characters limit or control the format of instructions
+written in FRAP-3 language, it is possible to write instructions
+in almost any format or style.</p>
+
+<p>FRAP-3 may also be used to prepare tapes for interpretive programming,
+since arbitrary definitions for operation code symbols are
+permitted.</p>
+
+<p>A feature useful both for ease of programming and for machine
+simulation is the ability to call for a series of instructions
+(macro-instruction) to be written. Frequently used instruction
+<ins class="trchange" title="Removed comma">sequences</ins> thus need only to be defined once.</p>
+
+<h3><a name="DECAL_SYSTEM" id="DECAL_SYSTEM"></a>DECAL &mdash; The Compiler Program</h3>
+
+<p>DECAL-3 (Digital Equipment Compiler, Assembler, and Linking loader
+for PDP-3) is an integrated programming system for PDP-3. It<span class="pagenum"><a id="page36" name="page36">-36-</a></span>
+incorporates in one system all of the essential features of advanced
+assemblers, compilers, and loaders.</p>
+
+<p>DECAL is both an assembler and compiler. It combines the one-to-one
+translation facilities of an assembler, and the one-to-many
+translation facilities of a formula translation compiler. Problem
+oriented language statements may be freely intermixed with symbolic
+machine language instructions. A flexible loader is available to
+allow the specification of program location at load time. The
+programmer may specify that certain variables and constants are
+"systems" variables and constants. The symbols so defined are
+universally used in a system of many routines. Thus, communications
+between parts of a major program is facilitated even though
+these parts may be compiled separately. Storage requirements for
+a large program are lessened by this technique.</p>
+
+<p>DECAL is an open-ended programming system and can be modified
+without a detailed understanding of the internal operation. This
+is achieved by means of a recursive definition facility based on
+a skeleton compiler with a small set of logical capabilities.
+The skeleton compiler acts as a bootstrap for introducing more
+sophisticated facilities.</p>
+
+<p>The compiler will be delivered with a fully defined subset of
+formula translation operators. Additional subsets may be defined
+by the user to best fit his source language.</p>
+
+<h3><a name="FLOATING_POINT_SUBROUTINES" id="FLOATING_POINT_SUBROUTINES"></a>FLOATING POINT SUBROUTINES</h3>
+
+<p>A set of subroutines are provided with the PDP-3 to perform
+floating point arithmetic. In these, the PDP-3 36 bit word is
+divided to form a 27 bit mantissa, a, and 9 bit exponent, b.
+Numbers, thus, appear in the form: <span class="nowrap">k = ax2<sup>b</sup></span> where, a, is considered
+to be in fractional form in the range <span class="nowrap">&frac12; &le; a &lt; 1,</span> and b is an integer,
+<span class="nowrap">0 &le; b &lt; 29.</span> This gives number, k, the range <span class="nowrap">10<sup>-76</sup> &lt; k &lt; 10<sup>+76</sup></span>.</p>
+
+<p>The subroutines are called with one operand in the accumulator.
+After the subroutine has been executed, the accumulator contains
+the answer. Thus floating point numbers are essentially handled
+as regular logical works. The format of the number allows magnitude
+comparisons to be made by conventional arithmetic as bit 0
+is the sign of the number, bits 1 to 9 the exponent, and the
+remaining 26 bits, together with the sign bit, the mantissa in<span class="pagenum"><a id="page37" name="page37">-37-</a></span>
+ones complement arithmetic. The arithmetic subroutines are: add,
+subtract, multiply, divide, convert a floating point number to
+binary, convert a binary number to a floating number. Additional
+routines form: &radic;x, e<sup>x</sup>, ln x, sine(<sup>&pi;</sup>&frasl;<sub>2</sub>)x, cos(<sup>&pi;</sup>&frasl;<sub>2</sub>)x, tan<sup>-1</sup>x. There
+are also programs to convert between floating decimal numbers and
+PDP-3 floating numbers.</p>
+
+<p><ins class="trchange" title="Was 'Routiines'">Routines</ins> which require two operands, e.g., add, subtract, multiply
+and divide, require an index register to specify the address of
+the second operand. An index register also specifies parameters
+in data conversions, e.g., the position of the binary point when
+converting a binary number to a standard floating number.</p>
+
+<p>Using the floating point subroutines, additional routines may be
+written which handle complex floating numbers and vector and
+matrix algebra.</p>
+
+<h3><a name="MAINTENANCE_ROUTINES" id="MAINTENANCE_ROUTINES"></a>MAINTENANCE ROUTINES</h3>
+
+<p>Maintenance Routines are used exclusively to check the operation
+of the machine. These routines are operated while varying the
+bias supply voltages, and thus a check is made on possible degradation
+of all components which would affect the operation of the
+machine.</p>
+
+<h3><a name="MISCELLANEOUS_ROUTINES" id="MISCELLANEOUS_ROUTINES"></a>MISCELLANEOUS ROUTINES</h3>
+
+<p>A variety of additional programs are provided with PDP-3.</p>
+
+<p>One of the more important programs is the Typewriter Interrogator
+Program (TIP). TIP allows the typewriter to be used most effectively
+as an input-output link by which programs and data are
+examined and modified. The features include request for printing
+of a series of registers, interrogation and modification of the
+contents of registers, and the ability to request new tapes after
+programs have been suitably modified. Communication is done
+completely via the typewriter in either octal numbers, decimal
+numbers, or alphanumeric codes. Register contents are presented
+in similar form.</p>
+
+<p>Other miscellaneous routines handle arithmetic processes, e.g.,
+number conversions, and communication with the input or output
+devices. These routines include various format print outs, paper
+tape and magnetic tape read in programs, and display subroutines.</p>
+
+<hr />
+<p class="center"><span class="pagenum"><a id="page38" name="page38">-38-</a></span></p>
+
+<div class="figtag">
+  <a id="FIGURE_1" name="FIGURE_1"></a>
+</div>
+<div class="figcenter">
+<img src="images/sys_block.png" width="600" height="680" alt="" title="" />
+<p class="caption">SYSTEM BLOCK DIAGRAM<br />
+FIGURE 1</p>
+</div>
+
+<hr />
+
+<div class="figtag">
+  <a id="FIGURE_2" name="FIGURE_2"></a>
+</div>
+<div class="figcenter">
+<img src="images/instruction.png" width="600" height="97" alt="" title="" />
+<p class="caption">INSTRUCTION FORMAT<br />
+FIGURE 2</p>
+</div>
+
+<hr />
+
+<div class="figtag">
+  <a id="FIGURE_3" name="FIGURE_3"></a>
+</div>
+<div class="figcenter">
+<img src="images/computer.png" width="500" height="365" alt="" title="" />
+<p class="caption">FIGURE 3</p>
+</div>
+
+<hr />
+
+<div class="trnote">
+<p><b>Transcriber's Notes</b></p>
+
+<p>
+Figure 4 is referred to in the text, but a copy could not be located.<br />
+C (X) and C(X) standardized to C(X).<br />
+Other changes from the original text are <ins class="trchange" title="original here">highlighted</ins>.
+</p>
+
+</div>
+
+</body>
+</html>
